@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Authentication</title>
+
+  <!-- Bootstrap CSS & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    body{
+      height: 100vh;
+      position: relative;
+    }
+    .logo-container{
+      height: 250px;
+      width: 250px;
+      /* border: 1px solid; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transform: translate(-50%,-50%);
+      top: 50%;
+      left: 50%;
+    }
+    .image{
+      height:250px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+   <!-- header start -->
+  <header class="d-flex justify-content-between align-items-center p-3 bg-light shadow">
+    <a href="#" class="navbar-brand fs-3">Novel Nova</a>
+  <div>
+  <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#signInModal">Login</button>
+  <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#signUpModal">Register</button>
+</div>
+    
+  </header>
+  <!-- header end -->
+
+<div class="logo-container">
+  <img class="image" src="https://thumbs.dreamstime.com/b/hand-book-logo-illustration-art-background-43965136.jpg" alt="logo">
+</div>
+
+<!-- Sign In Modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content text-center">
+      <!-- Header -->
+      <div class="modal-header">
+        <img src="https://thumbs.dreamstime.com/b/hand-book-logo-illustration-art-background-43965136.jpg" alt="Logo" width="30" class="me-2">
+        <h5 class="modal-title" id="signInModalLabel">Novel Nova</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="d-flex justify-content-around mb-3">
+          <button id="googleConfigure2" class="btn btn-success p-2">Continue with Google <i class="bi bi-google"></i></button>
+          <button id="continueAsGuest1" class="btn btn-warning p-2">Continue as Guest <i class="bi bi-person-circle"></i></button>
+        </div>
+        <hr>
+        <form>
+          <div class="form-group text-start">
+            <label for="EmailId" class="mb-2">Email address</label>
+            <input type="email" class="form-control mb-3" id="EmailId" placeholder="Enter email" required>
+          </div>
+          <div class="form-group text-start">
+            <label for="passwordVerifycation" class="mb-2">Password</label>
+            <input type="password" class="form-control mb-3" id="passwordVerifycation" placeholder="Password" required>
+          </div>
+        </form>
+        <div id="messageBox2" class="message-box mb-2"></div>
+        <div class="d-flex justify-content-around p-2">
+            <button class="btn btn-primary  text-white" id="forgotPassword">Forgot Password</button>
+            <button class="btn btn-primary text-white" id="SignIn">Sign In</button>
+        </div>
+        <p id="message" class="text-danger"></p>
+        <div id="error-message" style="display: none; color: red;"></div>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer justify-content-center">
+        <small>Don't have an account? <button class="btn btn-success ms-2" data-bs-toggle="modal" data-bs-target="#signUpModal">Sign Up</button></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sign Up Modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content text-center">
+      <!-- Header -->
+      <div class="modal-header">
+        <img src="https://thumbs.dreamstime.com/b/hand-book-logo-illustration-art-background-43965136.jpg" alt="Logo" width="30"  class="me-2">
+        <h5 class="modal-title" id="signUpModalLabel">Novel Nova</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <div class="d-flex justify-content-around mb-3">
+          <button id="googleConfigure1" class="btn btn-primary">Continue with Google <i class="bi bi-google"></i></button>
+          <button id="continueAsGuest2" class="btn btn-primary p-2">Continue as Guest <i class="bi bi-person-circle"></i></button>
+        </div>
+        <form>
+          <div class="form-group text-start">
+            <label for="fullname" class="mb-2">User Name</label>
+            <input type="text" class="form-control mb-3" id="fullname" placeholder="User Name" required>
+          </div>
+          <div class="form-group text-start">
+            <label for="email" class="mb-2">Email address</label>
+            <input type="email" class="form-control mb-3" id="email" placeholder="Enter email" required>
+          </div>
+          <div class="form-group text-start">
+            <label for="password" class="mb-2">Password</label>
+            <input type="password" class="form-control mb-3" id="password" placeholder="Password" required>
+          </div>
+          <div class="text-center">
+            <p class="text-danger-emphasis">User Credentials</p>
+            <ul class="list-unstyled">
+              <li>Username: Example (8-16 characters)</li>
+              <li>Email: user@gmail.com</li>
+              <li>Password: User@123</li>
+            </ul>
+          </div>
+          <div id="messageBox1" class="message-box mb-2"></div>
+          <button type="submit" class="btn btn-success w-50" id="signup">Sign Up</button>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer justify-content-center">
+        <small>Already have an account? <button class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#signInModal">Sign In</button></small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast for Guest Login -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="guestToast" class="toast bg-primary text-white" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">You are logged in as a guest.</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Firebase Auth Logic -->
+<script type="module" src="auth.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
