@@ -215,11 +215,9 @@ document.querySelectorAll("#continueAsGuest1, #continueAsGuest2").forEach((butto
     button.addEventListener("click", () => {
         const toastContainer = document.querySelector(".toast-container");
         const guestToast = new bootstrap.Toast(document.getElementById("guestToast"));
-        const sound = document.getElementById("toastSound");
         sessionStorage.setItem("userStatus", "guest");
         toastContainer.classList.add("show");
         guestToast.show();
-        sound.play().catch(() => console.log("Autoplay blocked"));
         document.getElementById("guestToast").addEventListener("hidden.bs.toast", () => {
             setTimeout(() => {
                 window.location.href = "./home.html";
